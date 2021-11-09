@@ -206,8 +206,6 @@
           <v-card-title><v-row><v-col>
             <span v-html="summarize_data_string"></span>
           </v-col></v-row></v-card-title>
-        </v-card>
-        <v-card>
           <v-card-text><v-row>
             <v-list>
               <v-list-item v-for="record in data_model" :key="record.unique_id">
@@ -331,10 +329,8 @@ export default {
             }
             _this.summarize_data_string += "<br />";
           }
-
-          // _this.summarize_data_string = _this.summarize_data_string.slice(0, -2); 
-          // _this.summarize_data_string+="e<br />";
         }
+        _this.summarize_data_string += "<br /><br />Results (" + res_data.length + " records):<hr /><br />"
         // console.log(query_url);
         console.log(response.data);
       }).catch(function (error) {

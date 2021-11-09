@@ -12,6 +12,7 @@
           v-for="(item, i) in items"
           :key="i"
           :to="item.to"
+          :href="item.href"
           router
           exact
         >
@@ -54,7 +55,7 @@
       :absolute="!fixed"
       app
     >
-      <span>&copy; {{ new Date().getFullYear() }}</span>
+      <span>&copy; {{ new Date().getFullYear() }} Khotanese Project | <a href="https://khotanese.org/khotanese-dictionary/">Content contributors</a> | Webapp was designed by oopus</span>
     </v-footer>
   </v-app>
 </template>
@@ -67,7 +68,14 @@ export default {
       drawer: false,
       fixed: false,
       items: [
+        {          
+          icon: 'mdi-apps',
+          title: 'Khotanese Project',
+          to: '',
+          href: 'http://khotanese.org/',
+        },
         {
+
           icon: 'mdi-chart-bubble',
           title: 'Basic Search',
           to: '/'
