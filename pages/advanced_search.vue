@@ -304,7 +304,7 @@ export default {
           _this.data_model.push(new_row);
         }
         // console.log(response.data.summarize_data);
-        _this.summarize_data_string = "<v-card-title>Data summarization</v-card-title><br /><hr /><br />"
+        _this.summarize_data_string = "<v-card-title>Result summarization</v-card-title><br /><hr /><br />"
         // for (const i of response.data.summarize_data){
         //   for (const j of i){
         //     for (const [k_key, k_value] of Object.entries(j)){
