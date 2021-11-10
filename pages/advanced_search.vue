@@ -209,7 +209,7 @@
           <v-card-text><v-row>
             <v-list>
               <v-list-item v-for="record in data_model" :key="record.unique_id">
-                  <v-card-title class="headline"><a :href="'./page?id='+record.unique_id" target="_blank">{{record.catalogue_number_res.toLowerCase()}}</a>&nbsp;&nbsp;&nbsp;&nbsp;{{record.description}}</v-card-title>
+                  <v-card-title class="headline"><a :href="'../page?id='+record.unique_id" target="_blank">{{record.catalogue_number_res.toLowerCase()}}</a>&nbsp;&nbsp;&nbsp;&nbsp;{{record.description}}</v-card-title>
               </v-list-item>
             </v-list>
           </v-row></v-card-text>
