@@ -319,7 +319,7 @@ export default {
           if (i.length == 1){
             for (const [k_key, k_value] of Object.entries(i[0])){
               if (k_key!="Count"){
-                k_key = "<u>" + k_key + "</u>";
+                k_key = "<u class='dotted'>" + k_key + "</u>";
               }else{
                 k_key = "&nbsp;&nbsp;&nbsp;&nbsp;- " + k_key;
               }
@@ -330,7 +330,7 @@ export default {
             for (const j of i){
               for (const [k_key, k_value] of Object.entries(j)){
               if (k_key!="Count"){
-                k_key = "<u>" + k_key + "</u>";
+                k_key = "<u class='dotted'>" + k_key + "</u>";
               }else{
                 k_key = "&nbsp;&nbsp;&nbsp;&nbsp;- " + k_key;
               }
@@ -368,3 +368,9 @@ export default {
 }
 
 </script>
+<style type="text/css">
+u {    
+    border-bottom: 3px dotted;
+    text-decoration: none;
+}
+</style>
