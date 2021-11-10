@@ -318,13 +318,13 @@ export default {
         for (let i of response.data.summarize_data){
           if (i.length == 1){
             for (const [k_key, k_value] of Object.entries(i[0])){
-              _this.summarize_data_string += "<font color='#964f4c'>" + k_key + ":</font><font color='#160408'>"+ k_value + "<br /></font>";
+              _this.summarize_data_string += "<font color='#964f4c'>" + k_key + ":&nbsp;</font><font color='#160408'>"+ k_value + "<br /></font>";
             }
             _this.summarize_data_string += "<br />";
           }else if(i.length>1){
             for (const j of i){
               for (const [k_key, k_value] of Object.entries(j)){
-                _this.summarize_data_string += "<font color='#964f4c'>" + k_key + ":</font><font color='#160408'>"+ k_value + "<br /></font>";
+                _this.summarize_data_string += "<font color='#964f4c'>" + k_key + ":&nbsp;</font><font color='#160408'>"+ k_value + "<br /></font>";
               }
             }
             _this.summarize_data_string += "<br />";
