@@ -8,7 +8,7 @@
         <v-divider></v-divider>
         <v-card-text>
           <v-row>
-            <v-col><font color="black"><b>Basic conditions</b></font></v-col>
+            <v-col><font color="black"><b>Basic</b></font></v-col>
           </v-row>
           <v-row>
             <v-col>
