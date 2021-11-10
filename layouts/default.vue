@@ -71,7 +71,7 @@ export default {
         },
         {
 
-          icon: 'mdi-chart-bubble',
+          icon: 'mdi-crosshairs',
           title: 'Basic Search',
           to: '/'
         },
