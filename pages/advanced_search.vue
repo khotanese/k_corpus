@@ -75,24 +75,9 @@
             </v-col>
             <v-col>
             <v-select
-            label="Linguistic stage"
-            :items="linguistic_stage_list"
-            v-model="linguistic_stage"
-            outlined
-            ></v-select>
-            </v-col>
-            <v-col>
-            <v-select
             label="Script"
             :items="script_list"
             v-model="script"
-            outlined
-            ></v-select>
-            </v-col><v-col>
-            <v-select
-            label="Script type"
-            :items="script_type_list"
-            v-model="script_type"
             outlined
             ></v-select>
             </v-col>
@@ -134,32 +119,7 @@
             ></v-select>
             </v-col>
           </v-row>
-          <v-row>
-            <v-col>
-            <v-select
-            label="Date1"
-            :items="date1_list"
-            v-model="date1"
-            outlined
-            ></v-select>
-            </v-col>
-            <v-col>
-            <v-select
-            label="Date2"
-            :items="date2_list"
-            v-model="date2"
-            outlined
-            ></v-select>
-            </v-col>
-          </v-row>
-          <v-row>
-            <v-col>
-            <v-text-field
-              label="Transcription"
-              v-model="alltext_correspondance"
-            ></v-text-field>
-          </v-col>
-          </v-row>
+
           <v-row>
             <v-col><font color="black"><b>Materiality</b></font></v-col>
           </v-row>
@@ -171,6 +131,14 @@
               v-model="writing_surface"
               outlined
               ></v-select>
+          </v-col>
+          </v-row>
+          <v-row>
+            <v-col>
+            <v-text-field
+              label="Transcription"
+              v-model="alltext_correspondance"
+            ></v-text-field>
           </v-col>
           </v-row>
           <v-row><v-col>
@@ -236,12 +204,8 @@ export default {
       current_location_list:global["current_location_list"],
       language:"",
       language_list:global["language_list"],
-      linguistic_stage:"",
-      linguistic_stage_list:global["linguistic_stage_list"],
       script:"",
       script_list:global["script_list"],
-      script_type:"",
-      script_type_list:global["script_type_list"],
       genre:"",
       genre_list:global["genre_list"],
       subgenre:"",
@@ -275,9 +239,7 @@ export default {
         + "&expedition_or_collection=" + this.expedition_or_collection
         + "&current_location=" + this.current_location
         + "&language=" + language_id
-        + "&linguistic_stage=" + this.linguistic_stage
         + "&script=" + script_id
-        + "&script_type=" + this.script_type
         + "&genre=" + this.genre
         + "&subgenre=" + this.subgenre
         + "&archive=" + this.archive

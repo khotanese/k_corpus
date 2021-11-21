@@ -16,9 +16,7 @@
               <v-divider></v-divider>
               <v-list-item><v-card-title class="headline"><b>Language and Script</b></v-card-title></v-list-item>
               <v-list-item><v-card-title class="headline"><font color='#964f4c'>Language:&nbsp;</font> {{data_model.language_name}}</v-card-title></v-list-item>
-              <v-list-item><v-card-title class="headline"><font color='#964f4c'>Linguistic stage:&nbsp;</font> {{data_model.linguistic_stage}}</v-card-title></v-list-item>
               <v-list-item><v-card-title class="headline"><font color='#964f4c'>Script:&nbsp;</font> {{data_model.script_name}}</v-card-title></v-list-item>
-              <v-list-item><v-card-title class="headline"><font color='#964f4c'>Script type:&nbsp;</font> {{data_model.script_type}}</v-card-title></v-list-item>
               <v-divider></v-divider>
               <v-list-item><v-card-title class="headline"><b>Content</b></v-card-title></v-list-item>
               <v-list-item><v-card-title class="headline"><font color='#964f4c'>Genre:&nbsp;</font> {{data_model.genre}}</v-card-title></v-list-item>
@@ -36,12 +34,21 @@
               <v-list-item><v-card-title class="headline"><font color='#964f4c'>Lines:&nbsp;</font> {{data_model.total_number_of_lines}}</v-card-title></v-list-item>
               <v-list-item><v-card-title class="headline"><font color='#964f4c'>Shape and Size:&nbsp;</font> {{data_model.shape_and_dimensions}}</v-card-title></v-list-item>
               <v-divider></v-divider>
+              <v-list-item><v-card-title class="headline"><b>Images</b></v-card-title></v-list-item>
+              <v-divider></v-divider>
               <v-list-item><v-card-title class="headline"><b>Transcription</b></v-card-title></v-list-item>
               <v-list>
                 <v-list-item v-for="(value, key) of data_model.alltext_text" :key="key">
                     <v-card-title class="headline">{{value[0]}} - {{value[1]}}</v-card-title>
                 </v-list-item>
               </v-list>
+              <v-divider></v-divider>
+              <v-list-item><v-card-title class="headline"><b>Translation</b></v-card-title></v-list-item>
+              <v-divider></v-divider>
+              <v-list-item><v-card-title class="headline"><b>Commentary</b></v-card-title></v-list-item>
+              <v-divider></v-divider>
+              <v-list-item><v-card-title class="headline"><b>Bibliography</b></v-card-title></v-list-item>
+              <v-list-item><v-card-title class="headline">{{data_model.bibliography}}</v-card-title></v-list-item>
             </v-list>
         </v-card-title>
       </v-card>
