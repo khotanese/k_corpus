@@ -3,7 +3,7 @@
     <v-col cols="12" lg="11" sm="8" md="6">
       <v-card>
         <v-card-title class="headline"><b>
-          Query Conditions
+          Advanced Search
         </b></v-card-title>
         <v-divider></v-divider>
         <v-card-text>
