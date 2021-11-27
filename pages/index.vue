@@ -35,6 +35,7 @@
         <v-card>
           <v-card-text><v-row>
             <v-list>
+              <span v-html="search_status"></span>
               <v-list-item v-for="record in data_model" :key="record.unique_id">
                   <v-card-title class="headline"><a :href="'./page?id='+record.unique_id" target="_blank">{{record.catalogue_number_res.toLowerCase()}}</a>&nbsp;&nbsp;&nbsp;&nbsp;{{record.description}}</v-card-title>
               </v-list-item>
@@ -54,16 +55,23 @@ export default {
       site_mark_or_collection_number:"",
       catalogue_number_res:[],
       data_model:[],
+      search_status:"",
     }
   },
   methods: {
     submit_data: function() {
       this.data_model = [];
       const query_url = global["url_search"] + "?catalogue_number="+this.catalogue_number+"&site_mark_or_collection_number="+this.site_mark_or_collection_number;
+      this.search_status = "Searching...";
       let _this = this;
       axios.get(query_url)
       .then(function (response) {
+        _this.search_status = "";
         let res_data = response.data.data;
+        if(!res_data){
+          _this.search_status = "No results";
+          throw "no results";
+        }
         for (const row of res_data){
           let new_row = [];
           new_row["unique_id"] = row.id;
