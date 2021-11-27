@@ -228,32 +228,46 @@ export default {
   methods: {
     submit_data: function() {
       this.data_model = [];
-      this.summarize_data_string = "";
-      let language_id = this.language.split("-")[0];
-      let script_id = this.script.split("-")[0];
+      this.summarize_data_string = "Searching...";
+      let main_find_spot_id = this.main_find_spot.split(" ")[0];
+      let specific_find_spot_id = this.specific_find_spot.split(" ")[0];
+      let expedition_or_collection_id = this.expedition_or_collection.split(" ")[0];
+      let current_location_id = this.current_location.split(" ")[0];
+      let language_id = this.language.split(" ")[0];
+      let script_id = this.script.split(" ")[0];
+      let genre_id = this.genre.split(" ")[0];
+      let subgenre_id = this.subgenre.split(" ")[0];
+      let title_id = this.title.split(" ")[0];
+      let writing_surface_id = this.writing_surface.split(" ")[0];
       const query_url = global["url_search"] 
         + "?catalogue_number=" + this.catalogue_number
         + "&site_mark_or_collection_number=" + this.site_mark_or_collection_number
-        + "&main_find_spot=" + this.main_find_spot
-        + "&specific_find_spot=" + this.specific_find_spot
-        + "&expedition_or_collection=" + this.expedition_or_collection
-        + "&current_location=" + this.current_location
+        + "&main_find_spot=" + main_find_spot_id
+        + "&specific_find_spot=" + specific_find_spot_id
+        + "&expedition_or_collection=" + expedition_or_collection_id
+        + "&current_location=" + current_location_id
         + "&language=" + language_id
         + "&script=" + script_id
-        + "&genre=" + this.genre
-        + "&subgenre=" + this.subgenre
+        + "&genre=" + genre_id
+        + "&subgenre=" + subgenre_id
         + "&archive=" + this.archive
-        + "&title=" + this.title
-        + "&date_a=" + this.date1
-        + "&date_b=" + this.date2
-        + "&writing_surface=" + this.writing_surface
+        + "&title=" + title_id
+        + "&writing_surface=" + writing_surface_id
         + "&alltext_correspondance=" + this.alltext_correspondance
+      
       let _this = this;
       axios.get(query_url)
       .then(function (response) {
         let res_data = response.data.data;
+        console.log(res_data)
+        if (!res_data){
+          _this.summarize_data_string = "No results";
+          throw "no results";
+        }
         // console.log( _this.summarize_data_model);
+        console.log(res_data);
         for (const row of res_data){
+          console.log(3);
           let new_row = [];
           new_row["unique_id"] = row.id;
           new_row["catalogue_number_res"] = row.catalogue_number;
@@ -265,6 +279,7 @@ export default {
           }
           _this.data_model.push(new_row);
         }
+
         // console.log(response.data.summarize_data);
         _this.summarize_data_string = "<v-card-title>Results summarization</v-card-title><br /><hr /><br />"
         // for (const i of response.data.summarize_data){

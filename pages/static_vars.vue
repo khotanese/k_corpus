@@ -1,21 +1,18 @@
 <script>
     // const url_search = "http://127.0.0.1/k_corpus/query_main.php";
     const url_search = "https://oopus.info/k_corpus/query_main.php";
-    const main_find_spot_list = ["Khotan", "Dunhuang", ""];
-    const specific_find_spot_list = ["Dandan-Uiliq", "Domoko", "Dunhuang", ""];
-    const expedition_or_collection_list = ["Hedin", "Hoernle", ""];
-    const current_location_list = ["BL","BNF","St. Peterburg","Stockholm", ""];
-    const language_list = ["1-New Persian","2-Arabic","3-Bactrian","4-Sogdian","5-Middle Persian","6-Khotanese","7-Bilingual (name languages) ","8-Trilingual (name languages)","9-Chinese", ""];
-    const linguistic_stage_list = ["Middle Khotanese", ""];
-    const script_list = ["1-Arabic","2-Hebrew","3-Pahlavi","4-Greek","5-Sogdian","6-Brahmī","7-Chinese","8-Tibetan", ""];
+    const main_find_spot_list = ["1 Khotan", "2 Dunhuang", "3 Turfan", "4 Kucha", ""];
+    const specific_find_spot_list = ["1 Achma", "2 Astana", "3 Balawaste", "4 Dandan-Uiliq", "5 Domoko", "6 Dandan Rawak", "7 Dunhuang limes", "8 Endere", "9 Etsin Gol", "10 Farhad Beg Yailaki", "11 Gaochang", "12 Iledong", "13 Jigaliq", "14 Khadalik", "15 Kuduk Köl", "16 Kara Yantak", "17 Ming Oi, Karashahr", "18 Mazar Tagh", "19 Mazar Toghrak", "20 Mogaoku", "21 Sampula", "22 Tarishlak, 20 miles north of Khotan", "23 Tajik, 30-35 miles west-southwest of Kucha", "24 Toghrak Mazar, near Sampula", ""];
+    const expedition_or_collection_list = ["1 Crosby Collection", "2 Francke Collection", "3 German Turfan Expedition", "4 Godfrey Collection", "5 Harding Collection", "6 Hedin Collection", "7 Hoernle Collection", "8 Huangwenbi Collection", "9 Huntington Collection", "10 Macartney Collection", "11 Malov Collection", "12 Mannerheim Collection", "13 Oldenburg Collection", "14 Otani Collection", "15 Pelliot Collection", "16 Petrovsky Collection", "17 Skrine Collection", "18 Stein’s 1st Expedition", "19 Stein’s 2nd Expedition", "20 Stein’s 3rd Expedition", "21 Stein’s 4th Expedition", "22 Strelkov Document", "23 Trinkler Collection", ""];
+    const current_location_list = ["1 British Library, London, UK", "2 Bibliothèque nationale de France, Paris, France", "3 Museum of Ethnography, Stockholm, Sweden", "4 Institute of Oriental Manuscripts of the Russian Academy of Sciences, St. Petersburg, Russia", "5 National Library of China, Beijing, China", "6 Museum of Renmin University of China, Beijing, China", "7 Xinjiang Museum, Urumqi, China", "8 Hotan Museum, Khotan, China", "9 Lüshun Museum, Dalian, China", "10 Library of Congress, Washington D.C., US", "11 Yale University, New Haven, US", "12 Harvard University, Cambridge, US", "13 Museum Fünf Kontinente, Munich, Germany", "14 Übersee Museum, Bremen, Germany", "15 Berlin-Brandenburgische Akademie der Wissenschaften", "16 National Museum of Finland, Helsinki, Finland", "17 Ryukoku University, Kyoto, Japan", ""];
+    const language_list = ["1 Khotanese", "2 Chinese", "3 Tibetan", "4 Sanskrit", "5 Tocharian A", "6 Tocharian B", "7 Tumshuqese", "8 Sogdian", "9 Judeo-Persian", "10 Arabic", "11 Gandhari", ""];
+    const script_list = ["1 Southern Brahmī, formal", "2 Southern Brahmī, cursive", "3 Northern Brahmī, formal", "4 Northern Brahmī, cursive", "5 Chinese", "6 Tibetan", "7 Sogdian", "8 Hebrew", "9 Arabic", "10 Kharoshthi", ""];
     const script_type_list = ["cursive", ""];
-    const genre_list = ["secular", ""];
-    const subgenre_list = ["contract", ""];
-    const archive_list = ["2", ""];
-    const title_list = ["Aparimitāyuḥ-sūtra","Vajracchedikā- prajñāpāramitā-sūtra","Aparimitāyuḥ-sūtra","Jātakastava","Vajracchedikā- prajñāpāramitā-sūtra","Jīvakapustaka","Siddhasāra","Kauśika-sūtra","Chinese Vajracchedikā in Khotanese cursive ","Triśaraṇa","Mañjuśrīnairātmyāvatāra-sūtra","Hṛdayasūtra","Preface to the Hṛdayasūtra", ""];
-    const date1_list = ["Year 17, 5th day, Skarhvara month","Year 11. 8th days. Cvataja month","7th month; 22th day","7th month 10th day","5th month. 6th day","Year 22. 23rd days. Skarihvara month","Year 17. 17th days. Rrahaja month","Year 20. 20th days. Rrahaja month (Line 1-8) 26th days. Rrahaja month (Line 9-11)","Year 19. 29th days. Bramkhaysja month","Year 20. 13rd days. Cvataja month","Year 20. 10thdays. Kaja month","R: Year 36. 11st days. Raruya month","Year 35. ","Year 21. 18th days. Raruya month.","17th days. Ttymjara month","11th days. Hamdyaja month.","Year 35. 21st days. Rrahaja month","Year 35. 28th days. Rrahaji month","Year 33. 29th days. Ttumjara month","22nd days. Kaja month","Year 7. 14th days. Bryamkhayaja month.","Year 13. 9th days, Manamja month","3rd month 7th day","b: 12th month 30th day","4th month 20 day","11th month 3th day","Year 10. 4th month. 20th day","Horse year, 9th year of Thin Hina (= Tianxing), 6/19","Tianzun 4","3rd year of Thyaina śīva (= Tianshou), 6th month, 10th day","24th regnal year, 3th month, 10th day ","4th year of Thyenä tcūnä (= Tianzun), the first month, the 9th day","Tiger year, 7th month, 3rd day","Thin hīni (= Tianxing) horse year, 10th month", ""];
-    const date2_list = ["958","965","970","971","982","942-943","955/966","967-78","967-977","10th century","10th century, a hare year","Chinese date = 7 (?) June 746", ""];
-    const writing_surface_list = ["Cloth", "Paper", "Wood", ""];
+    const genre_list = ["1 Secular", "2 Buddhist", "3 Literary", ""];
+    const subgenre_list = ["1 Contract", "2 Order", "3 Petition", "4 Letter", "5 Tax receipt", "6 Account", "7 Roster", "8 Medical", "9 Geography", "10 Syllabary ", "11 Colophon", "12 Poem", "13 Notes", "14 Story", ""];
+    const archive_list = ["0", "1", "2", "3", "4", "5", ""];
+    const title_list = ["1 Aparimitāyuḥ-sūtra", ""];
+    const writing_surface_list = ["1 paper", "2 wood", "3 textile", "4 wall", ""];
     export default {
         url_search,
         main_find_spot_list,
@@ -23,15 +20,12 @@
         expedition_or_collection_list,
         current_location_list,
         language_list,
-        linguistic_stage_list,
         script_list,
         script_type_list,
         genre_list,
         subgenre_list,
         archive_list,
         title_list,
-        date1_list,
-        date2_list,
         writing_surface_list,
     }
 
