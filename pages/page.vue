@@ -35,6 +35,7 @@
               <v-list-item><v-card-title class="headline"><font color='#964f4c'>Shape and Size:&nbsp;</font> {{data_model.shape_and_dimensions}}</v-card-title></v-list-item>
               <v-divider></v-divider>
               <v-list-item><v-card-title class="headline"><b>Images</b></v-card-title></v-list-item>
+              <v-list-item><v-card-title class="headline" v-html="data_model.image"></v-card-title></v-list-item>
               <v-divider></v-divider>
               <v-list-item><v-card-title class="headline"><b>Transcription</b></v-card-title></v-list-item>
               <v-list>
@@ -44,8 +45,10 @@
               </v-list>
               <v-divider></v-divider>
               <v-list-item><v-card-title class="headline"><b>Translation</b></v-card-title></v-list-item>
+              <v-list-item><v-card-title class="headline" v-html="data_model.translation"></v-card-title></v-list-item>
               <v-divider></v-divider>
               <v-list-item><v-card-title class="headline"><b>Commentary</b></v-card-title></v-list-item>
+              <v-list-item><v-card-title class="headline" v-html="data_model.commentary"></v-card-title></v-list-item>
               <v-divider></v-divider>
               <v-list-item><v-card-title class="headline"><b>Bibliography</b></v-card-title></v-list-item>
               <v-list-item><v-card-title class="headline">{{data_model.bibliography}}</v-card-title></v-list-item>
