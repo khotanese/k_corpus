@@ -66,6 +66,7 @@ def create_main_one_to_one_data(id_list, one_to_one_list_code_only, line_break_l
     output = []
     one_to_one_list_id_only = [i[1] for i in one_to_one_list_code_only]
     line_break_list_id_only = [i[1] for i in line_break_list]
+    # fill_by_empty_not_zero_list_id_only = [i[1] for i in fill_by_empty_not_zero_list]
     for row in input_all:
         for column_to_remove_description in one_to_one_list_id_only:
             row[column_to_remove_description] = row [column_to_remove_description].split(" ")[0]
@@ -76,7 +77,11 @@ def create_main_one_to_one_data(id_list, one_to_one_list_code_only, line_break_l
             row[count_column] = row[count_column].replace(",", " ")
             row[count_column] = row[count_column].replace("  ", " ")
             if row[count_column] == "":
-                row[count_column] = "0"
+                row[count_column] = "No data"
+            # if row[count_column] == "" and count_column not in fill_by_empty_not_zero_list_id_only:
+            #     row[count_column] = "0"
+            # elif row[count_column] == "" and count_column in fill_by_empty_not_zero_list_id_only:
+            #     row[count_column] = "Empty"
         output.append(row)
     return output
 
@@ -86,6 +91,7 @@ data = {}
 one_to_one_list_code_only = [["current_location",1], ["main_find_spot",2], ["specific_find_spot", 3], ["expedition_or_collection", 5], ["genre", 9], ["subgenre", 10], ["title", 12], ["writing_surface", 19]]
 one_to_many_list = [["language_data", 7], ["script_data", 8], ["alltext_data", 22]]
 line_break_list = [["translation", 23], ["commentary", 24]]
+# fill_by_empty_not_zero_list = [["title", 12], ["content_summary", 13]]
 text_reader = f_io.read_data(input_file)
 id_list = text_reader(0)[1:]
 data = create_one_to_many_data(id_list, one_to_many_list, text_reader)
