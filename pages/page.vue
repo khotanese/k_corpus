@@ -96,7 +96,7 @@ export default {
         _this.data_model.subgenre_name = _this.data_model.subgenre_name.split(" ").slice(1).join(" ");
         _this.data_model.title_name = _this.data_model.title_name.split(" ").slice(1).join(" ");
         _this.data_model.writing_surface_name = _this.data_model.writing_surface_name.split(" ").slice(1).join(" ");
-        _this.data_model.image = 'Please search&nbsp;<i>'+_this.data_model.catalogue_number+'</i>&nbsp;on&nbsp;'+'<a href="'+_this.data_model.image+'" target="_blank">'+_this.data_model.image+'</a>';
+        _this.data_model.image = 'Please locate the folder that corresponds to this id:&nbsp;<i>'+_this.data_model.catalogue_number+'</i>&nbsp;on&nbsp;'+'<a href="'+_this.data_model.image+'" target="_blank">'+_this.data_model.image+'</a>';
 
         // remove code number for multiple values
         _this.data_model.language_name = _this.data_model.language_name.replace(/\|\d+ /g, " | ");
