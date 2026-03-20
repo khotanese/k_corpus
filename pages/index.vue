@@ -1,0 +1,108 @@
+<template>
+  <v-row justify="center" align="center">
+    <v-col cols="12" lg="11" sm="8" md="6">
+      <v-card>
+        <v-card-title class="text-h6"><b>
+          Catalogue Search
+        </b></v-card-title>
+        <v-divider></v-divider>
+        <v-card-text>
+          <v-row>
+            <v-col>
+            <v-text-field
+              label="Catalogue No."
+              v-model="catalogue_number"
+            ></v-text-field>
+          </v-col>
+            <v-col>
+            <v-text-field
+              label="Site mark"
+              v-model="site_mark_or_collection_number"
+            ></v-text-field>
+          </v-col>
+          </v-row>
+          <v-row><v-col>
+          <v-btn
+            class="mr-4"
+            color="primary"
+            @click="submit_data"
+          >
+            Search
+          </v-btn>
+          </v-col></v-row>
+          </v-card-text>
+        </v-card>
+        <v-card>
+          <v-card-text><v-row>
+            <v-list>
+              <span v-html="search_status"></span>
+              <v-list-item v-for="record in data_model" :key="record.unique_id">
+                  <v-card-title class="text-h6"><a :href="'./page?id='+record.unique_id" target="_blank">{{record.catalogue_number_res}}</a>&nbsp;&nbsp;&nbsp;&nbsp;{{record.description}}</v-card-title>
+              </v-list-item>
+            </v-list>
+          </v-row></v-card-text>
+        </v-card>
+    </v-col>
+  </v-row>
+</template>
+<script>
+import axios from 'axios'
+import { url_search } from '~/utils/static_vars'
+export default {
+  data () {
+    return {
+      catalogue_number:"",
+      site_mark_or_collection_number:"",
+      catalogue_number_res:[],
+      data_model:[],
+      search_status:"",
+    }
+  },
+  methods: {
+    submit_data: function() {
+      this.data_model = [];
+      const query_url = url_search + "?catalogue_number="+this.catalogue_number+"&site_mark_or_collection_number="+this.site_mark_or_collection_number;
+      this.search_status = "Searching...";
+      let _this = this;
+      axios.get(query_url)
+      .then(function (response) {
+        _this.search_status = "";
+        let res_data = response.data.data;
+        if(!res_data){
+          _this.search_status = "No results";
+          throw "no results";
+        }
+        for (const row of res_data){
+          let new_row = [];
+          new_row["unique_id"] = row.id;
+          new_row["catalogue_number_res"] = row.catalogue_number;
+          if (row.content_summary!=""){
+            new_row["description"] = row.content_summary;
+          }
+          else if(row.title!=""){
+            new_row["description"] = row.title;
+          }
+          _this.data_model.push(new_row);
+        }
+        console.log(_this.data_model);
+      }).catch(function (error) {
+        console.log(error);
+      });
+    },
+  },
+  beforeMount(){
+    if (typeof this.$route.query.id !== 'undefined') {
+    }
+  },
+  mounted() {
+    let _this = this;
+    window.addEventListener('keyup', function(event) {
+      if (event.key === 'Enter') {
+        _this.submit_data();
+      }
+    });
+  }
+
+}
+
+</script>
