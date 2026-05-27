@@ -10,15 +10,23 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
-    "axios": "^1.15.0",
+    "axios": "^1.16.1",
     "vuetify": "^3.7.6"
   },
   "overrides": {
-    "serialize-javascript": "^7.0.4"
+    "serialize-javascript": "^7.0.5",
+    "simple-git": "^3.36.0",
+    "postcss": "^8.5.15",
+    "follow-redirects": "^1.16.0",
+    "lodash": "^4.18.1",
+    "nitropack": "^2.13.4",
+    "brace-expansion": "^2.1.1",
+    "ws": "^8.21.0",
+    "yaml": "^2.9.0"
   },
   "devDependencies": {
     "@mdi/font": "^7.4.47",
-    "nuxt": "^3.15.4",
+    "nuxt": "^3.21.6",
     "vite-plugin-vuetify": "^2.0.4",
     "sass": "^1.83.4"
   }
